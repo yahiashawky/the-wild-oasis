@@ -113,7 +113,7 @@ function BookingDataBox({ booking }) {
     extrasPrice,
     totalPrice,
     hasBreakfast,
-    observations,
+    observation,
     isPaid,
     guests: { fullName: guestName, email, country, countryFlag, nationalID },
     cabins: { name: cabinName },
@@ -150,12 +150,12 @@ function BookingDataBox({ booking }) {
           <p>National ID {nationalID}</p>
         </Guest>
 
-        {observations && (
+        {observation && (
           <DataItem
             icon={<HiOutlineChatBubbleBottomCenterText />}
-            label="Observations"
+            label="Observation"
           >
-            {observations}
+            {observation}
           </DataItem>
         )}
 
