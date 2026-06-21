@@ -8,7 +8,7 @@ export function useCheckin(){
     const navigate = useNavigate();
 
     const {mutate : checkin, isLoading : isCheckedin} = useMutation({
-        mutationFn:(bookingId) => updateBooking(bookingId, {status: "checked-in" , isPaid: true}),
+        mutationFn:({bookingId , breakfast}) => updateBooking(bookingId, {status: "checked-in" , isPaid: true, ...breakfast}),
         onSuccess: (data) => { // data is the updated booking that was returned from the updateBooking function
             toast.success(`Booking #${data.id} checked in successfully`);
             // queryClient.invalidateQueries({queryKey: ['booking']})  // this will refetch the booking data from the server, but we can also just update the cache with the new data
